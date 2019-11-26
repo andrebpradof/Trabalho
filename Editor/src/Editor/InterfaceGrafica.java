@@ -9,6 +9,7 @@ package Editor;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.IOException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -190,7 +191,8 @@ public class InterfaceGrafica extends JFrame{
         this.menuItemRefazer.setEnabled(undoManager.canRedo()); //habilita o "Refazer"
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
+        ClientConect.conectar();
         InterfaceGrafica interfaceGrafica = new InterfaceGrafica(); //Abre uma interfaceGrafica
     }
 }
