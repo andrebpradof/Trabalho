@@ -2,112 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d2e6f35-9758-475a-bca6-0d9e810d8a66" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/trabalho_poo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/desktop.ini" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Editor/src/Editor/ClientConect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Editor.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Arquivos.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Caracteres.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Paragrafo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Texto.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/Usuario.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/allpackages-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/constant-values.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/deprecated-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/element-list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/help-doc.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/external/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/external/jquery/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/external/jquery/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_65_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_222222_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_454545_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_888888_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-3.3.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-migrate-3.0.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.structure.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.structure.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/jszip-utils-ie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/jszip-utils-ie.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/jszip-utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/jszip-utils.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip/dist/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip/dist/jszip.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip/dist/jszip.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/glass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/serialized-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Arquivos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Caracteres.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Paragrafo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Texto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Arquivos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Caracteres.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/InterfaceGrafica.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Paragrafo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Texto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Usuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/texto.bin" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +45,17 @@
       <option name="presentableId" value="Default" />
       <updated>1574726115788</updated>
       <workItem from="1574726117204" duration="332000" />
+      <workItem from="1574726533400" duration="400000" />
+      <workItem from="1574784315323" duration="1559000" />
     </task>
+    <task id="LOCAL-00001" summary="começando a parte 3 do trabalho">
+      <created>1574726794651</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574726794651</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,10 +66,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="começando a parte 3 do trabalho" />
+    <option name="LAST_COMMIT_MESSAGE" value="começando a parte 3 do trabalho" />
   </component>
 </project>
