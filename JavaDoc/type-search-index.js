@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"Editor","l":"Arquivos"},{"p":"Editor","l":"Caracteres"},{"p":"Editor","l":"Main"},{"p":"Editor","l":"Paragrafo"},{"p":"Editor","l":"Texto"},{"p":"Editor","l":"Usuario"}]

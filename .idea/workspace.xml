@@ -1,15 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39395ee4-ce31-4842-a6ae-bbdad811afd1" name="Default Changelist" comment="">
+    <list default="true" id="5d2e6f35-9758-475a-bca6-0d9e810d8a66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/trabalho_poo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Arquivos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Editor/Editor/Arquivos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Editor/Editor/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Texto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Editor/Editor/Texto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Arquivos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Editor/Arquivos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/InterfaceGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Editor/InterfaceGrafica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Editor/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Texto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Editor/Texto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Arquivos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Caracteres.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Paragrafo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Texto.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/Usuario.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allpackages-index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/constant-values.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/deprecated-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/element-list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/help-doc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/external/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/external/jquery/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/external/jquery/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_65_dadada_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_888888_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-3.3.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-migrate-3.0.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.structure.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jquery-ui.structure.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/jszip-utils-ie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/jszip-utils-ie.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/jszip-utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip-utils/dist/jszip-utils.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip/dist/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip/dist/jszip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery/jszip/dist/jszip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/glass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/serialized-form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Arquivos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Caracteres.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Paragrafo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Texto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Editor/Editor/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/Arquivos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/Caracteres.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/InterfaceGrafica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/Paragrafo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/Texto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/texto.bin" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,51 +115,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--tags" />
-        <option name="title" value="All" />
-      </GitPushTagMode>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
-  </component>
-  <component name="ProjectId" id="1RaBHQF0xuUc5z9U5sD4mtgLPIo" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1U86woX0sycqppbaa8COMqHbl5D" />
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Edtor" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -75,198 +137,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Java" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Editor.Main" />
-      <module name="Editor" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="39395ee4-ce31-4842-a6ae-bbdad811afd1" name="Default Changelist" comment="" />
-      <created>1569895237131</created>
+      <changelist id="5d2e6f35-9758-475a-bca6-0d9e810d8a66" name="Default Changelist" comment="" />
+      <created>1574726115788</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1569895237131</updated>
-      <workItem from="1570819601878" duration="8333000" />
-      <workItem from="1570828132615" duration="48000" />
-      <workItem from="1571956391421" duration="1875000" />
-      <workItem from="1571961615998" duration="101000" />
-      <workItem from="1571961740570" duration="40000" />
-      <workItem from="1571961809007" duration="31000" />
-      <workItem from="1571961868314" duration="1478000" />
-      <workItem from="1572123361561" duration="1258000" />
-      <workItem from="1572221684401" duration="3182000" />
-      <workItem from="1572297641110" duration="12196000" />
+      <updated>1574726115788</updated>
+      <workItem from="1574726117204" duration="332000" />
     </task>
-    <task id="LOCAL-00001" summary="teste inicial">
-      <created>1570130317466</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1570130317466</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Classes modeslos iniciais">
-      <created>1570131256111</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1570131256111</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Alterações no main">
-      <created>1570133096917</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1570133096917</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Alterações no main">
-      <created>1570133129500</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1570133129500</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Nova classe">
-      <created>1570133515597</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1570133515597</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Nova classe">
-      <created>1570647843780</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1570647843780</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Nova classe">
-      <created>1570659702288</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1570659702288</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Commit gru">
-      <created>1570660757641</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1570660757641</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Commit gru">
-      <created>1570661442440</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1570661442440</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Commit gru">
-      <created>1570663008161</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1570663008161</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Commit gru">
-      <created>1570673857969</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1570673857969</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Commit gru">
-      <created>1570674891042</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1570674891042</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Commit gru">
-      <created>1570675779975</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1570675779975</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Commit gru">
-      <created>1570718909270</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1570718909270</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Commit gru">
-      <created>1570730637736</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1570730637736</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Commit gru">
-      <created>1570734494029</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1570734494029</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Commit gru">
-      <created>1570735313559</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1570735313559</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Commit gru">
-      <created>1570744905854</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1570744905854</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Commit gru">
-      <created>1570745823701</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1570745823701</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Ultimo commit">
-      <created>1570747317920</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1570747317920</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Ultimo commit">
-      <created>1570827342265</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1570827342265</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Ultimo commit">
-      <created>1571962369005</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1571962369005</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Ultimo commit">
-      <created>1572223492194</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1572223492194</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,22 +159,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="teste inicial" />
-    <MESSAGE value="Classes modeslos iniciais" />
-    <MESSAGE value="Alterações no main" />
-    <MESSAGE value="Nova classe" />
-    <MESSAGE value="Commit gru" />
-    <MESSAGE value="Ultimo commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ultimo commit" />
   </component>
 </project>
