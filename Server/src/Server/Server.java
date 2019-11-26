@@ -2,6 +2,8 @@ package Server;
 
 import javax.swing.*;
 import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,16 +12,43 @@ import java.util.Scanner;
  */
 
 public class Server {
-    private final ArrayList<Client> clients = new ArrayList<Client>();
-    private final ArrayList<FileServer> fileServers = new ArrayList<FileServer>();
+    private final ArrayList<Client> clients;
+    private final ArrayList<FileServer> fileServers;
     private static String connect;
     private static String directory;
-    private static String input;
+    private static ServerSocket serverSocket;
+    private Socket socket;
+    private ObjectInputStream objectInputStream;
+    private ObjectOutputStream objectOutputStream;
+
+    public Server() throws IOException {
+        clients = new ArrayList<Client>();
+        fileServers = new ArrayList<FileServer>();
+        serverSocket = new ServerSocket(1234);
+    }
+
+    public void aceeptConnection() throws IOException {
+        socket = serverSocket.accept();
+    }
+
+    public void setObjectInputStream(ObjectInputStream objectInputStream) {
+        this.objectInputStream = objectInputStream;
+    }
+
+    public void setObjectOutputStream(ObjectOutputStream objectOutputStream) {
+        this.objectOutputStream = objectOutputStream;
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
 
     /**
      * Retorna um Array com os clientes
      * @return ArrayList de clientes
      */
+
+
     public ArrayList<Client> getClientes() {
         return clients;
     }
@@ -180,36 +209,20 @@ public class Server {
 
     public static void main(String []args) throws IOException {
         Server server = new Server();
-        Scanner scanner = new Scanner(System.in);
 
-        while(true){
-            System.out.print("Diretório para os arquivos: ");
-            directory = scanner.nextLine();
-            if(directory != null){ break; }
-            message("Diretório inválido!", "Erro", 0);
+        while (true){
+            System.out.println("Aguardando conexões...");
+            server.aceeptConnection();
+            server.setObjectInputStream(new ObjectInputStream(server.getSocket().getInputStream()));
+            server.setObjectOutputStream(new ObjectOutputStream(server.getSocket().getOutputStream()));
+
+            Client client = new Client();
+            Connect connect = new Connect(client,server);
+            Thread thread = new Thread(connect);
+            thread.start();
         }
 
-        System.out.println("******** Escutando Usuários ********");
-        System.out.print("Digite conectar para logar no servidor: ");
 
-        server.filelist(); //lista arquivos da pasta e salva em uma lista
-
-
-
-        while(true){
-            input = scanner.next();
-            if("conectar".compareToIgnoreCase(input) == 0){
-                System.out.println("Novo usuário conectado!");
-                System.out.println();
-
-                Client user = new Client();
-
-                Runnable runnable = new Connect(user, server);
-                Thread t = new Thread(runnable);
-                t.start();
-                break; // Apenas na parte 2
-            }
-        }
     }// Fim do método main
 }
 
