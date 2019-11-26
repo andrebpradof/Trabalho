@@ -191,6 +191,7 @@ public class InterfaceGrafica extends JFrame{
     }
 
     public static void main(String[] args){
+
         InterfaceGrafica interfaceGrafica = new InterfaceGrafica(); //Abre uma interfaceGrafica
     }
 }
