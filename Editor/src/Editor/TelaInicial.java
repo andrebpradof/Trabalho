@@ -3,15 +3,16 @@ package Editor;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.File;
 import java.io.IOException;
-import javax.swing.border.EmptyBorder;
 
 public class TelaInicial extends JFrame{
 
-    JPanel painel = new JPanel();
-    JButton novoArquivo = new JButton("Novo");
-    JButton abrirArquivo = new JButton("Abrir arquivo");
-    JButton sair = new JButton("Sair");
+    private JPanel painel = new JPanel();
+    private JButton novo = new JButton("Novo");
+    private JButton abrir = new JButton("Abrir arquivo");
+    private JButton sair = new JButton("Sair");
+
 
 
     public TelaInicial(){
@@ -22,8 +23,8 @@ public class TelaInicial extends JFrame{
         this.setSize(400, 100);
         this.setLocationRelativeTo(null);
 
-        this.add(novoArquivo);
-        this.add(abrirArquivo);
+        this.add(novo);
+        this.add(abrir);
         this.add(sair);
 
         sair.addActionListener(new ActionListener() {
@@ -31,24 +32,51 @@ public class TelaInicial extends JFrame{
             public void actionPerformed(ActionEvent e) { System.exit(0); }
         });
 
-        novoArquivo.addActionListener(new ActionListener() {
+        novo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                InterfaceGrafica interfaceGrafica = new InterfaceGrafica();
+
                 try {
                     ClientConect.getObjectOutputStream().writeUTF("novo arquivo");
-                    ClientConect.getObjectOutputStream().writeUTF(JOptionPane.showInputDialog(null,"Nome do Arquivo:"));
+                    String resposta = JOptionPane.showInputDialog(null,"Nome do Arquivo:");
+                    if(resposta!=null) {
+                        ClientConect.getObjectOutputStream().writeUTF(resposta);
+                        if (ClientConect.getObjectInputStream().read()!=-1) {
+                            InterfaceGrafica interfaceGrafica = new InterfaceGrafica();
+                            TelaInicial.getFrames()[0].setVisible(false);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Erro na criação do arquivo!","Erro", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null,ex.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
                 }
-                TelaInicial.getFrames()[0].setVisible(false);
+
             }
         });
 
-        abrirArquivo.addActionListener(new ActionListener() {
+        abrir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                InterfaceGrafica interfaceGrafica = new InterfaceGrafica();
+                JFileChooser fileChooser = new JFileChooser();
+
+                fileChooser = new JFileChooser("f:");
+                int resposta = fileChooser.showOpenDialog(null);
+                if (resposta == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        ClientConect.getObjectOutputStream().writeUTF(fileChooser.getSelectedFile().getAbsolutePath());
+                        String texto = ClientConect.getObjectInputStream().readUTF();
+                        if (!texto.equals("-1")) {
+                            InterfaceGrafica interfaceGrafica = new InterfaceGrafica();
+                            TelaInicial.getFrames()[0].setVisible(false);
+                            interfaceGrafica.setTextArea(texto);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Erro na abertura do arquivo!","Erro", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
                 TelaInicial.getFrames()[0].setVisible(false);
             }
         });

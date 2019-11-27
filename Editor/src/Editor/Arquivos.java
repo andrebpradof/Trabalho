@@ -96,11 +96,8 @@ public class Arquivos implements Serializable {
      */
     public static void abrir(JTextArea textArea){
             fileChooser = new JFileChooser("f:"); //o usuario seleciona o arquivo que deseja abrir na janela JFileChooser.
-
             int resposta = fileChooser.showOpenDialog(null);
-
             if (resposta == JFileChooser.APPROVE_OPTION) { //caso o usuario clique em "Open"
-
                 file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 
                 try {

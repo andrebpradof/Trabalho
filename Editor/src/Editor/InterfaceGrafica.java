@@ -190,4 +190,8 @@ public class InterfaceGrafica extends JFrame{
         this.menuItemDesfazer.setEnabled(undoManager.canUndo()); //habilita "Desfazer"
         this.menuItemRefazer.setEnabled(undoManager.canRedo()); //habilita o "Refazer"
     }
+
+    public void setTextArea(String texto) {
+        this.textArea.setText(texto);
+    }
 }
