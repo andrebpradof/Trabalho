@@ -18,8 +18,6 @@ public class Server {
     private static String directory;
     private static ServerSocket serverSocket;
     private Socket socket;
-    private ObjectInputStream objectInputStream;
-    private ObjectOutputStream objectOutputStream;
 
     public Server() throws IOException {
         clients = new ArrayList<Client>();
@@ -29,14 +27,7 @@ public class Server {
 
     public void aceeptConnection() throws IOException {
         socket = serverSocket.accept();
-    }
-
-    public void setObjectInputStream(ObjectInputStream objectInputStream) {
-        this.objectInputStream = objectInputStream;
-    }
-
-    public void setObjectOutputStream(ObjectOutputStream objectOutputStream) {
-        this.objectOutputStream = objectOutputStream;
+        System.out.println("Cliente conectado!");
     }
 
     public Socket getSocket() {
@@ -213,11 +204,11 @@ public class Server {
         while (true){
             System.out.println("Aguardando conexões...");
             server.aceeptConnection();
-            server.setObjectInputStream(new ObjectInputStream(server.getSocket().getInputStream()));
-            server.setObjectOutputStream(new ObjectOutputStream(server.getSocket().getOutputStream()));
+            ObjectInputStream objectInputStream = new ObjectInputStream(new ObjectInputStream(server.getSocket().getInputStream()));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new ObjectOutputStream(server.getSocket().getOutputStream()));
 
             Client client = new Client();
-            Connect connect = new Connect(client,server);
+            Connect connect = new Connect(client,objectInputStream,objectOutputStream);
             Thread thread = new Thread(connect);
             thread.start();
         }
