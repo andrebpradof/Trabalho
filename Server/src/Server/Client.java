@@ -1,6 +1,7 @@
 package Server;
 
 import java.io.FileReader;
+import java.net.Socket;
 
 /**
  * modelo de cliente do servidor
@@ -9,6 +10,15 @@ public class Client {
 
     private FileServer fileServer;
     private String name; //nome do usuario
+    private Socket socket;
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
+    }
 
     /**
      * retorna um fileServer

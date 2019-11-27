@@ -35,6 +35,12 @@ public class TelaInicial extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 InterfaceGrafica interfaceGrafica = new InterfaceGrafica();
+                try {
+                    ClientConect.getObjectOutputStream().writeUTF("novo arquivo");
+                    ClientConect.getObjectOutputStream().writeUTF(JOptionPane.showInputDialog(null,"Nome do Arquivo:"));
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
+                }
                 TelaInicial.getFrames()[0].setVisible(false);
             }
         });
@@ -47,10 +53,5 @@ public class TelaInicial extends JFrame{
             }
         });
 
-    }
-
-    public static void main(String[] args) throws IOException {
-        ClientConect.conectar();
-        TelaInicial telaInicial = new TelaInicial();
     }
 }
