@@ -2,12 +2,7 @@ package Editor;
 
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.filechooser.FileSystemView;
 import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 public class TelaInicial extends JFrame{
@@ -42,7 +37,7 @@ public class TelaInicial extends JFrame{
         novo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(Cominication.novo() != 1)
+                if(Comunication.novo() != 1)
                     return;
                 InterfaceGrafica interfaceGrafica = new InterfaceGrafica();
                 try {
@@ -59,7 +54,7 @@ public class TelaInicial extends JFrame{
         upload.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String texto = Cominication.upload();
+                String texto = Comunication.upload();
 
                 if(texto.equals("-1"))
                     return;
@@ -82,7 +77,7 @@ public class TelaInicial extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                String texto = Cominication.abrir();
+                String texto = Comunication.abrir();
 
                 if (texto.equals("-1"))
                     return;

@@ -9,13 +9,10 @@ package Editor;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
@@ -101,7 +98,7 @@ public class InterfaceGrafica extends JFrame{
         menuItemNovo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(Cominication.novo() != 1)
+                if(Comunication.novo() != 1)
                     return;
 
                 textArea.setText("");
@@ -112,7 +109,7 @@ public class InterfaceGrafica extends JFrame{
         menuItemUpload.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String texto = Cominication.upload();
+                String texto = Comunication.upload();
                 if(texto.equals("-1"))
                     return;
                 textArea.setText(texto);
@@ -123,7 +120,7 @@ public class InterfaceGrafica extends JFrame{
         menuItemAbrir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String texto = Cominication.abrir();
+                String texto = Comunication.abrir();
 
                 if(texto.equals("-1"))
                     return;
@@ -217,7 +214,7 @@ public class InterfaceGrafica extends JFrame{
             public void keyReleased(KeyEvent e) {
                 try {
                     String entrada = textArea.getText();
-                    if(Cominication.enviarTexto(entrada) != 1){
+                    if(Comunication.enviarTexto(entrada) != 1){
                         JOptionPane.showMessageDialog(InterfaceGrafica.getFrames()[0], "Erro no envio do texto!", "Erro", JOptionPane.ERROR_MESSAGE);
                         return;
                     }

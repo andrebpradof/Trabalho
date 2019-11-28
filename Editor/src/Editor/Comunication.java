@@ -5,7 +5,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 import java.net.Socket;
 
-public class Cominication implements Runnable{
+public class Comunication implements Runnable{
 
     private static Socket socket;
     private InterfaceGrafica interfaceGrafica;
