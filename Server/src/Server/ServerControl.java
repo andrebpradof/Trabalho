@@ -5,23 +5,14 @@ import java.util.ArrayList;
 
 public class ServerControl {
     private static ArrayList<Client> clientArrayList = new ArrayList<Client>();
-    private static ArrayList<FileServer> fileServerArrayList = new ArrayList<FileServer>();
     private static File[] files;
 
     public static ArrayList<Client> getClientArrayList() {
         return clientArrayList;
     }
 
-    public static ArrayList<FileServer> getFileServerArrayList() {
-        return fileServerArrayList;
-    }
-
     public static void addClient(Client client){
         clientArrayList.add(client);
-    }
-
-    public static void addFile(FileServer fileServer){
-        fileServerArrayList.add(fileServer);
     }
 
     public static int newFile(String name, Client client) throws IOException {
@@ -32,7 +23,7 @@ public class ServerControl {
                 FileServer fileServer = new FileServer();
                 fileServer.addClient(client);
                 fileServer.setName(name);
-                fileServerArrayList.add(fileServer);
+                client.setFileServer(fileServer);
                 return 1;
             }
             catch (IOException e){
@@ -64,6 +55,9 @@ public class ServerControl {
                 texto = texto + "\n" + aux; //a linha lida por s1 é acrescentada à string sl com uma quebra de linha
             }
 
+            if(texto == null)
+                texto = "";
+
             return texto;
         } catch (IOException e) {
             return "-1";
@@ -91,15 +85,33 @@ public class ServerControl {
         return lista;
     }
 
+    public static int atualizaNumEditores(FileServer fileServer) throws IOException {
+        int numEdit = fileServer.getClients().size();
+        for(Client client : fileServer.getClients()){
+            try {
+                client.getObjectOutputStream().writeUTF("numEdit");
+                client.getObjectOutputStream().flush();
+                client.getObjectOutputStream().writeInt(numEdit);
+                client.getObjectOutputStream().flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        return 1;
+    }
+
     public static String abrir(int indice,Client client) throws IOException {
         File file = files[indice];
         String texto = leArquivo(file);
-        if(texto.equals("-1"))
+
+        if(texto != null && texto.equals("-1"))
             return "-1";
 
         FileServer fileServer = new FileServer();
         fileServer.setName(file.getName());
         fileServer.addClient(client);
+        client.setFileServer(fileServer);
 
         return texto;
     }
@@ -121,12 +133,46 @@ public class ServerControl {
             FileServer fileServer = new FileServer();
             fileServer.addClient(client);
             fileServer.setName(file.getName());
-            fileServerArrayList.add(fileServer);
+            client.setFileServer(fileServer);
             return 1;
         }
         catch(IOException e){
             return -1;
         }
+    }
+
+    public static int atualiza(FileServer fileServer, Client clientSend, String texto) throws IOException {
+        for(Client client : fileServer.getClients()){
+            if(client != clientSend){
+                try {
+                    client.getObjectOutputStream().writeUTF("setText");
+                    client.getObjectOutputStream().flush();
+                    client.getObjectOutputStream().writeUTF(texto);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return -1;
+                }
+            }
+        }
+        return 1;
+    }
+
+    public static int recebeTexto(String texto,Client client) throws IOException {
+        try {
+            FileWriter fileWriter = new FileWriter(client.getFileServer().getName());
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            bufferedWriter.write(texto);
+
+            bufferedWriter.flush();
+            bufferedWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+
+        return atualiza(client.getFileServer(),client,texto);
     }
 
 }

@@ -1,16 +1,23 @@
 package Server;
 
-import java.io.FileReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-/**
- * modelo de cliente do servidor
- */
+
 public class Client {
 
     private FileServer fileServer;
-    private String name; //nome do usuario
+    private String ip;
     private Socket socket;
+    private ObjectInputStream objectInputStream;
+    private ObjectOutputStream objectOutputStream;
+
+    public Client(Socket socket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream){
+        this.socket = socket;
+        this.objectOutputStream = objectOutputStream;
+        this.objectInputStream = objectInputStream;
+    }
 
     public Socket getSocket() {
         return socket;
@@ -20,37 +27,28 @@ public class Client {
         this.socket = socket;
     }
 
-    /**
-     * retorna um fileServer
-     * @return retorna um fileServer
-     */
+    public ObjectInputStream getObjectInputStream() {
+        return objectInputStream;
+    }
+
+    public ObjectOutputStream getObjectOutputStream() {
+        return objectOutputStream;
+    }
+
+
     public FileServer getFileServer() {
         return fileServer;
     }
 
-    /**
-     * retorna uma string com o nome do usuario
-     * @return retorna a string com o nome do usuario
-     */
-    public String getName() {
-        return name;
+    public String getIp() {
+        return ip;
     }
 
-    /**
-     * seta o fileserver
-     * @param fileServer - usa como parametro o fileServer a ser setado
-     */
     public void setFileServer(FileServer fileServer) {
         this.fileServer = fileServer;
     }
 
-    /**
-     * seta a string name
-     * @param name - usa como parametro a string name a ser setada
-     */
-    public void setName(String name) {
-        this.name = name;
+    public void setIp(String ip) {
+        this.ip = ip;
     }
-
-
 }

@@ -101,32 +101,10 @@ public class InterfaceGrafica extends JFrame{
         menuItemNovo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
+                if(Cominication.novo() != 1)
+                    return;
 
-                    ClientConect.getObjectOutputStream().writeUTF("novo");
-                    String resposta = JOptionPane.showInputDialog(InterfaceGrafica.getFrames()[0],"Nome do Arquivo:");
-
-                    if(resposta!=null) {
-
-                        ClientConect.getObjectOutputStream().writeUTF(resposta);
-                        ClientConect.getObjectOutputStream().flush();
-
-
-                        switch (ClientConect.getObjectInputStream().readInt()){
-                            case -1:
-                                JOptionPane.showMessageDialog(InterfaceGrafica.getFrames()[0],"Erro ao criar o arquivo!","Erro", JOptionPane.ERROR_MESSAGE);
-                                break;
-                            case -2:
-                                JOptionPane.showMessageDialog(InterfaceGrafica.getFrames()[0],"Arquivo já existente no servidor","Erro", JOptionPane.ERROR_MESSAGE);
-                                break;
-                            default:
-                                textArea.setText("");
-                                break;
-                        }
-                    }
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(InterfaceGrafica.getFrames()[0],ex.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
-                }
+                textArea.setText("");
             }
         });
 
@@ -134,56 +112,10 @@ public class InterfaceGrafica extends JFrame{
         menuItemUpload.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    ClientConect.getObjectOutputStream().writeUTF("upload");
-                    ClientConect.getObjectOutputStream().flush();
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-                }
-
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                fileChooser.setFileFilter(new FileNameExtensionFilter(".txt", "txt"));
-                fileChooser.setAcceptAllFileFilterUsed(false);
-                fileChooser.setMultiSelectionEnabled(false);
-
-                int resposta = fileChooser.showOpenDialog(null);
-                if (resposta == JFileChooser.APPROVE_OPTION) {
-                    try {
-                        String nome = fileChooser.getSelectedFile().getName();
-                        ClientConect.getObjectOutputStream().writeUTF(nome);
-                        ClientConect.getObjectOutputStream().flush();
-                        resposta = ClientConect.getObjectInputStream().readInt();
-                        if( resposta == -1){
-                            JOptionPane.showMessageDialog(TelaInicial.getFrames()[0],"Arquivo já existente no servidor!","Erro", JOptionPane.ERROR_MESSAGE);
-                            return;
-                        }
-
-                        String aux = "", texto = ""; //strings para auxiliar a passagem do texto do arquivo para a area de texto da interface
-                        FileReader fileReader = new FileReader(fileChooser.getSelectedFile());
-
-                        BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-                        texto = bufferedReader.readLine(); //a string sl recebe o conteudo da primeira linha do buffer
-
-                        while ((aux = bufferedReader.readLine()) != null) { //s1 le uma linha do buffer por vez
-                            texto = texto + "\n" + aux; //a linha lida por s1 é acrescentada à string sl com uma quebra de linha
-                        }
-
-                        ClientConect.getObjectOutputStream().writeUTF(texto);
-                        ClientConect.getObjectOutputStream().flush();
-
-                        if(ClientConect.getObjectInputStream().read() == -1) {
-                            JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], "Erro no upload!", "Erro", JOptionPane.ERROR_MESSAGE);
-                            return;
-                        }
-
-                        textArea.setText(texto);
-
-                    } catch (IOException ex) {
-                        JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
+                String texto = Cominication.upload();
+                if(texto.equals("-1"))
+                    return;
+                textArea.setText(texto);
             }
         });
         
@@ -191,32 +123,12 @@ public class InterfaceGrafica extends JFrame{
         menuItemAbrir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    ClientConect.getObjectOutputStream().writeUTF("abrir");
-                    ClientConect.getObjectOutputStream().flush();
+                String texto = Cominication.abrir();
 
-                    String mensagem = ClientConect.getObjectInputStream().readUTF();
+                if(texto.equals("-1"))
+                    return;
 
-                    String resposta = JOptionPane.showInputDialog(TelaInicial.getFrames()[0],"Digite o índice do arquivo: \n"+mensagem);
-
-                    if(resposta == null)
-                        return;
-
-                    ClientConect.getObjectOutputStream().write(Integer.parseInt(resposta));
-                    ClientConect.getObjectOutputStream().flush();
-
-                    String texto = ClientConect.getObjectInputStream().readUTF();
-
-                    if(texto.equals("-1")){
-                        JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], "Erro na abertura do arquivo", "Erro", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-
-                    textArea.setText(texto);
-
-                }catch (IOException ex) {
-                    JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-                }
+                textArea.setText(texto);
             }
         });
 
@@ -289,6 +201,32 @@ public class InterfaceGrafica extends JFrame{
                 updateMenuItens(); //chama updateMenuItens
             }
         });
+
+        textArea.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                try {
+                    String entrada = textArea.getText();
+                    if(Cominication.enviarTexto(entrada) != 1){
+                        JOptionPane.showMessageDialog(InterfaceGrafica.getFrames()[0], "Erro no envio do texto!", "Erro", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
     private void updateMenuItens(){ //habilita os botões "Desfazer" e "Refazer" conforme há ações para serem desfeitas ou refeitas
@@ -298,5 +236,9 @@ public class InterfaceGrafica extends JFrame{
 
     public void setTextArea(String texto) {
         this.textArea.setText(texto);
+    }
+
+    public void setNumEdit(String numEdit){
+        this.menuNumEdit.setText(numEdit);
     }
 }

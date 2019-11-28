@@ -5,15 +5,12 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class Connect implements Runnable{
-    private final Client client;
+    private Client client;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     private Socket socket;
-    private static ArrayList<Client> clientArrayList;
-    private static ArrayList<FileServer> fileServerArrayList;
 
 
     public Connect(Client client, Socket socket, ObjectInputStream input, ObjectOutputStream output) {
@@ -21,8 +18,6 @@ public class Connect implements Runnable{
         this.socket = socket;
         objectInputStream = input;
         objectOutputStream = output;
-        clientArrayList = ServerControl.getClientArrayList();
-        fileServerArrayList = ServerControl.getFileServerArrayList();
     }
 
 
@@ -73,6 +68,15 @@ public class Connect implements Runnable{
 
                     } catch (IOException e) {
                         JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                break;
+                case "texto":
+                    try {
+                        String texto = objectInputStream.readUTF();
+                        objectOutputStream.writeInt(ServerControl.recebeTexto(texto,client));
+                        objectOutputStream.flush();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
             }
         }

@@ -12,9 +12,6 @@ import java.util.Scanner;
  */
 
 public class Server {
-    private final ArrayList<Client> clients = new ArrayList<Client>();
-    private final ArrayList<FileServer> fileServers = new ArrayList<FileServer>();
-
 
     public static void main(String []args) throws IOException {
         ServerSocket server = new ServerSocket(4000);
@@ -28,9 +25,7 @@ public class Server {
             ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
 
-
-            Client client = new Client();
-            client.setSocket(socket);
+            Client client = new Client(socket,output,input);
             ServerControl.addClient(client);
             Connect connect = new Connect(client,socket,input,output);
             Thread thread = new Thread(connect);

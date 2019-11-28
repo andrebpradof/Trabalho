@@ -8,30 +8,29 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class ClientConect {
-    private static ObjectInputStream objectInputStream;
-    private static ObjectOutputStream objectOutputStream;
+
+    private static Cominication cominication;
+    private static Socket socket;
 
     public static void conectar() throws IOException {
 
         try {
-            Socket socket = new Socket("127.0.0.1", 4000);
+            Socket conexao = new Socket("127.0.0.1", 4000);
+            socket = conexao;
 
-            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-            objectInputStream = new ObjectInputStream(socket.getInputStream());
-
-            Thread thread = new Thread(new Cominication(socket,objectOutputStream,objectInputStream));
-            thread.start();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+            Cominication.startComunication(socket,objectOutputStream,objectInputStream);
         }catch (IOException e){
             JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
         }
 
     }
 
-    public static ObjectOutputStream getObjectOutputStream() {
-        return objectOutputStream;
-    }
-
-    public static ObjectInputStream getObjectInputStream() {
-        return objectInputStream;
+    public static void setInterfaceGrafica(InterfaceGrafica tela) throws IOException {
+        cominication = new Cominication();
+        cominication.setInterfaceGrafica(tela);
+        Thread thread = new Thread(cominication);
+        thread.start();
     }
 }
