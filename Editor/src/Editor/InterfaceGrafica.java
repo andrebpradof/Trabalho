@@ -9,10 +9,13 @@ package Editor;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
@@ -27,12 +30,13 @@ public class InterfaceGrafica extends JFrame{
     private JMenu menuFile = new JMenu("Arquivo"); //menu de manipulação de arquivos
     private JMenu menuEdit = new JMenu("Editar"); //menu de edição de texto
     private JMenu menuOpcao = new JMenu("Opções"); //menu de opções
+    private JMenu menuNumEdit = new JMenu("Usuários editando: 1");
     private JMenuItem menuItemSair = new JMenuItem("Sair"); //botão para sair do editor
     private JMenuBar barra = new JMenuBar(); //barra de menus
     private JMenuItem menuItemNovo = new JMenuItem("Novo"); //botao para iniciar uma nova edição
+    private JMenuItem menuItemUpload = new JMenuItem("Upload"); // botao para upar um arquivo no servidor
     private JMenuItem menuItemColar = new JMenuItem("Colar"); //botao para colar texto copiado ou recortado
     private JMenuItem menuItemAbrir = new JMenuItem("Abrir"); //botao para abrir no editor o texto de um arquivo preexistente
-    private JMenuItem menuItemSalvar = new JMenuItem("Salvar"); //botao para salvar em um arquivo o texto editado
     private JMenuItem menuItemDesfazer = new JMenuItem("Desfazer"); //botao para desfazer a ultima ação de edição nao desfeita
     private JMenuItem menuItemRefazer = new JMenuItem("Refazer"); //botao para refazer a ultima ação de edição desfeita e nao refeita
     private JMenuItem menuItemCopiar = new JMenuItem("Copiar"); //botao para copiar um trecho texto selecionado
@@ -57,8 +61,9 @@ public class InterfaceGrafica extends JFrame{
 
         //adiciona-se os menuItens aos seus respectivos menus
         menuFile.add(menuItemNovo);
+        menuFile.add(menuItemUpload);
         menuFile.add(menuItemAbrir);
-        menuFile.add(menuItemSalvar);
+
 
         menuOpcao.add(menuItemSair);
 
@@ -70,7 +75,6 @@ public class InterfaceGrafica extends JFrame{
         menuEdit.add(menuItemColar);
         menuEdit.add(menuItemRecortar);
         menuEdit.add(menuItemSelecionar);
-      //  menuEdit.add(menuItemRemover);
         menuEdit.add(menuItemDesfazer);
         menuEdit.add(menuItemRefazer);
 
@@ -78,6 +82,7 @@ public class InterfaceGrafica extends JFrame{
         barra.add(menuFile);
         barra.add(menuEdit);
         barra.add(menuOpcao);
+        barra.add(menuNumEdit);
 
         textArea.setEditable(true);//habilita-se a interação do usuario com a area de texto
         textArea.setBorder(new EmptyBorder(5,5,5,5)); //acrescenta-se uma margem à area de texto
@@ -92,25 +97,127 @@ public class InterfaceGrafica extends JFrame{
         this.setSize(800, 700); //declaração do tamanho da janela do editor
         this.setLocationRelativeTo(null); //centraliza a janela do editor na tela
 
+        // Novo arquivo
         menuItemNovo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Arquivos.novo(textArea);
-            } //chama-se o metodo Arquivos.novo quando o usuario clica em "Novo"
+                try {
+
+                    ClientConect.getObjectOutputStream().writeUTF("novo");
+                    String resposta = JOptionPane.showInputDialog(InterfaceGrafica.getFrames()[0],"Nome do Arquivo:");
+
+                    if(resposta!=null) {
+
+                        ClientConect.getObjectOutputStream().writeUTF(resposta);
+                        ClientConect.getObjectOutputStream().flush();
+
+
+                        switch (ClientConect.getObjectInputStream().readInt()){
+                            case -1:
+                                JOptionPane.showMessageDialog(InterfaceGrafica.getFrames()[0],"Erro ao criar o arquivo!","Erro", JOptionPane.ERROR_MESSAGE);
+                                break;
+                            case -2:
+                                JOptionPane.showMessageDialog(InterfaceGrafica.getFrames()[0],"Arquivo já existente no servidor","Erro", JOptionPane.ERROR_MESSAGE);
+                                break;
+                            default:
+                                textArea.setText("");
+                                break;
+                        }
+                    }
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(InterfaceGrafica.getFrames()[0],ex.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         });
 
+        // Upload de um arquivo para o servidor
+        menuItemUpload.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    ClientConect.getObjectOutputStream().writeUTF("upload");
+                    ClientConect.getObjectOutputStream().flush();
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                fileChooser.setFileFilter(new FileNameExtensionFilter(".txt", "txt"));
+                fileChooser.setAcceptAllFileFilterUsed(false);
+                fileChooser.setMultiSelectionEnabled(false);
+
+                int resposta = fileChooser.showOpenDialog(null);
+                if (resposta == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        String nome = fileChooser.getSelectedFile().getName();
+                        ClientConect.getObjectOutputStream().writeUTF(nome);
+                        ClientConect.getObjectOutputStream().flush();
+                        resposta = ClientConect.getObjectInputStream().readInt();
+                        if( resposta == -1){
+                            JOptionPane.showMessageDialog(TelaInicial.getFrames()[0],"Arquivo já existente no servidor!","Erro", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+
+                        String aux = "", texto = ""; //strings para auxiliar a passagem do texto do arquivo para a area de texto da interface
+                        FileReader fileReader = new FileReader(fileChooser.getSelectedFile());
+
+                        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                        texto = bufferedReader.readLine(); //a string sl recebe o conteudo da primeira linha do buffer
+
+                        while ((aux = bufferedReader.readLine()) != null) { //s1 le uma linha do buffer por vez
+                            texto = texto + "\n" + aux; //a linha lida por s1 é acrescentada à string sl com uma quebra de linha
+                        }
+
+                        ClientConect.getObjectOutputStream().writeUTF(texto);
+                        ClientConect.getObjectOutputStream().flush();
+
+                        if(ClientConect.getObjectInputStream().read() == -1) {
+                            JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], "Erro no upload!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+
+                        textArea.setText(texto);
+
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
+        
+        // Abrir arquivo do servidor
         menuItemAbrir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Arquivos.abrir(textArea);
-            } //chama-se o metodo Arquivos.abrir quando o usuario clica em "Abrir"
-        });
+                try {
+                    ClientConect.getObjectOutputStream().writeUTF("abrir");
+                    ClientConect.getObjectOutputStream().flush();
 
-        menuItemSalvar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Arquivos.salvar(textArea);
-            } //chama-se o metodo Arquivos.salvar quando o usuario clica em "Salvar"
+                    String mensagem = ClientConect.getObjectInputStream().readUTF();
+
+                    String resposta = JOptionPane.showInputDialog(TelaInicial.getFrames()[0],"Digite o índice do arquivo: \n"+mensagem);
+
+                    if(resposta == null)
+                        return;
+
+                    ClientConect.getObjectOutputStream().write(Integer.parseInt(resposta));
+                    ClientConect.getObjectOutputStream().flush();
+
+                    String texto = ClientConect.getObjectInputStream().readUTF();
+
+                    if(texto.equals("-1")){
+                        JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], "Erro na abertura do arquivo", "Erro", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
+                    textArea.setText(texto);
+
+                }catch (IOException ex) {
+                    JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         });
 
         menuItemSair.addActionListener(new ActionListener() {
@@ -185,8 +292,6 @@ public class InterfaceGrafica extends JFrame{
     }
 
     private void updateMenuItens(){ //habilita os botões "Desfazer" e "Refazer" conforme há ações para serem desfeitas ou refeitas
-        //this.menuItemDesfazer.setText(undoManager.getUndoPresentationName());
-        //this.menuItemRefazer.setText(undoManager.getRedoPresentationName());
         this.menuItemDesfazer.setEnabled(undoManager.canUndo()); //habilita "Desfazer"
         this.menuItemRefazer.setEnabled(undoManager.canRedo()); //habilita o "Refazer"
     }

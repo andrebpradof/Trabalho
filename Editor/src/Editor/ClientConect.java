@@ -8,7 +8,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class ClientConect {
-    private static Socket socket;
     private static ObjectInputStream objectInputStream;
     private static ObjectOutputStream objectOutputStream;
 
@@ -20,7 +19,7 @@ public class ClientConect {
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectInputStream = new ObjectInputStream(socket.getInputStream());
 
-            Thread thread = new Thread(new Cominication());
+            Thread thread = new Thread(new Cominication(socket,objectOutputStream,objectInputStream));
             thread.start();
         }catch (IOException e){
             JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);

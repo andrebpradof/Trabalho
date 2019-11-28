@@ -12,7 +12,7 @@ public class Connect implements Runnable{
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     private Socket socket;
-    private ArrayList<Client> clientArrayList;
+    private static ArrayList<Client> clientArrayList;
     private static ArrayList<FileServer> fileServerArrayList;
 
 
@@ -25,40 +25,55 @@ public class Connect implements Runnable{
         fileServerArrayList = ServerControl.getFileServerArrayList();
     }
 
-    private String recebeComando(){
-        String input = "";
-        try {
-            input = objectInputStream.readUTF();
-            return input;
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
-            try {
-                clientArrayList.remove(client);
-                this.objectInputStream.close();
-                this.objectOutputStream.close();
-                return "";
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
-                return "";
-            }
-        }
-    }
-
 
     @Override
     public void run() {
         while (true){
-            String input = recebeComando();
+            String input = null;
+            try {
+                input = objectInputStream.readUTF();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             switch (input){
-                case "novo arquivo":
-                    String nome = recebeComando();
+                case "novo":
                     try {
-                        ServerControl.newFile(nome,client);
+                        String nome = objectInputStream.readUTF();
+                        objectOutputStream.writeInt(ServerControl.newFile(nome,client));
+                        objectOutputStream.flush();
                     } catch (IOException e) {
                         JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
                     }
+                break;
+                case "upload":
+                    try {
+                            String nome = objectInputStream.readUTF();
+                            if(ServerControl.verificaArquivo(nome) == -1) {
+                                objectOutputStream.writeInt(-1);
+                                objectOutputStream.flush();
+                                break;
+                            }
+                            objectOutputStream.writeInt(1);
+                            objectOutputStream.flush();
+                            objectOutputStream.flush();
+                            String texto = objectInputStream.readUTF();
+                            objectOutputStream.write(ServerControl.upload(nome,texto,client));
+                            objectOutputStream.flush();
 
-                    break;
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                break;
+                case "abrir":
+                    try {
+                        objectOutputStream.writeUTF(ServerControl.listaArquivos());
+                        objectOutputStream.flush();
+                        objectOutputStream.writeUTF(ServerControl.abrir(objectInputStream.read(),client));
+                        objectOutputStream.flush();
+
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
+                    }
             }
         }
     }

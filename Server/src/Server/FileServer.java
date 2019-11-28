@@ -8,8 +8,7 @@ import java.util.ArrayList;
  */
 public class FileServer {
     private String name; //nome do arquivo
-    private ArrayList<Client> clients; //lista de clientes conectados
-    private String creator; //nome do criador do arquivo
+    private ArrayList<Client> clients = new ArrayList<Client>(); //lista de clientes conectados
 
     /**
      * seta a string com o nome do arquivo
@@ -28,14 +27,6 @@ public class FileServer {
     }
 
     /**
-     * seta o nome do criador do arquivo
-     * @param creator string do nome do criador do arquivo
-     */
-    public void setCreator(String creator) {
-        this.creator = creator;
-    }
-
-    /**
      * pega o nome do arquivo
      * @return retorna a string name do nome do arquivo
      */
@@ -43,19 +34,9 @@ public class FileServer {
         return name;
     }
 
-    /**
-     * pega a lista de clientes conectados
-     * @return retorna uma ArrayList dos clientes conectados
-     */
-    public ArrayList<Client> getClients() {
-        return clients;
+
+    public void addClient(Client client){
+        this.clients.add(client);
     }
 
-    /**
-     * pega o nome do criador do arquivo
-     * @return retorna uma string com o nome do criador do arquivo
-     */
-    public String getCreator() {
-        return creator;
-    }
 }
