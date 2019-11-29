@@ -22,7 +22,7 @@ public class ServerControl {
                 file.createNewFile();
                 FileServer fileServer = new FileServer();
                 fileServer.addClient(client);
-                fileServer.setName(name);
+                fileServer.setName(name+".txt");
                 client.setFileServer(fileServer);
                 return 1;
             }
@@ -113,7 +113,7 @@ public class ServerControl {
         fileServer.addClient(client);
         client.setFileServer(fileServer);
 
-        atualizaNumEditores(fileServer);
+        //atualizaNumEditores(fileServer);
 
         return texto;
     }
@@ -161,7 +161,8 @@ public class ServerControl {
 
     public static int recebeTexto(String texto,Client client) throws IOException {
         try {
-            FileWriter fileWriter = new FileWriter(client.getFileServer().getName());
+            File file = new File(client.getFileServer().getName());
+            FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             bufferedWriter.write(texto);
@@ -174,7 +175,8 @@ public class ServerControl {
             return -1;
         }
 
-        return atualiza(client.getFileServer(),client,texto);
+        //return atualiza(client.getFileServer(),client,texto);
+        return 1;
     }
 
 }
