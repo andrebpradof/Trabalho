@@ -1,11 +1,9 @@
 package Server;
 
-import javax.swing.*;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  * Classe que controla os clientes que entram no servidor, como tambem a manipulacao dos arquivos
@@ -18,21 +16,21 @@ public class Server {
 
         while (true){
             System.out.println("Aguardando conexões...");
-            Socket socket = server.accept();
+            Socket socket = server.accept(); // recebe uma conexao com um cliente
 
             System.out.println("Conectado!");
 
+            //inicializa os objetos output e input do servidor para estabelecer comunicacao com o cliente
             ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
 
+            //atrela o cliente conectado ao socket e aos objetos e input e output
             Client client = new Client(socket,output,input);
-            ServerControl.addClient(client);
-            Connect connect = new Connect(client,socket,input,output);
+            ServerControl.addClient(client); //adiciona o cliente a array list de clientes dentro do servidor
+            Connect connect = new Connect(client,socket,input,output); //estabelece a conexao entre o servidor e o cliente
             Thread thread = new Thread(connect);
-            thread.start();
+            thread.start(); //inicia a thread de conexao
         }
-
-
     }// Fim do método main
 }
 

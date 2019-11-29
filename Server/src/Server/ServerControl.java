@@ -89,10 +89,10 @@ public class ServerControl {
         int numEdit = fileServer.getClients().size();
         for(Client client : fileServer.getClients()){
             try {
-                client.getObjectOutputStream().writeUTF("numEdit");
-                client.getObjectOutputStream().flush();
-                client.getObjectOutputStream().writeInt(numEdit);
-                client.getObjectOutputStream().flush();
+                client.getOutputForward().writeUTF("numEdit");
+                client.getOutputForward().flush();
+                client.getOutputForward().writeInt(numEdit);
+                client.getOutputForward().flush();
             } catch (IOException e) {
                 e.printStackTrace();
                 return -1;
@@ -112,6 +112,8 @@ public class ServerControl {
         fileServer.setName(file.getName());
         fileServer.addClient(client);
         client.setFileServer(fileServer);
+
+        atualizaNumEditores(fileServer);
 
         return texto;
     }
@@ -145,9 +147,9 @@ public class ServerControl {
         for(Client client : fileServer.getClients()){
             if(client != clientSend){
                 try {
-                    client.getObjectOutputStream().writeUTF("setText");
-                    client.getObjectOutputStream().flush();
-                    client.getObjectOutputStream().writeUTF(texto);
+                    client.getOutputForward().writeUTF("setText");
+                    client.getOutputForward().flush();
+                    client.getOutputForward().writeUTF(texto);
                 } catch (IOException e) {
                     e.printStackTrace();
                     return -1;

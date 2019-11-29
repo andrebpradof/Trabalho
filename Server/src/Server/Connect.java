@@ -4,20 +4,21 @@ import javax.swing.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Connect implements Runnable{
     private Client client;
-    private ObjectOutputStream objectOutputStream;
-    private ObjectInputStream objectInputStream;
+    private ObjectOutputStream outputListen;
+    private ObjectInputStream inputListen;
     private Socket socket;
 
 
     public Connect(Client client, Socket socket, ObjectInputStream input, ObjectOutputStream output) {
         this.client = client;
         this.socket = socket;
-        objectInputStream = input;
-        objectOutputStream = output;
+        this.inputListen = input;
+        this.outputListen = output;
     }
 
 
@@ -26,34 +27,34 @@ public class Connect implements Runnable{
         while (true){
             String input = null;
             try {
-                input = objectInputStream.readUTF();
+                input = inputListen.readUTF();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             switch (input){
                 case "novo":
                     try {
-                        String nome = objectInputStream.readUTF();
-                        objectOutputStream.writeInt(ServerControl.newFile(nome,client));
-                        objectOutputStream.flush();
+                        String nome = inputListen.readUTF();
+                        outputListen.writeInt(ServerControl.newFile(nome,client));
+                        outputListen.flush();
+
                     } catch (IOException e) {
                         JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
                     }
                 break;
                 case "upload":
                     try {
-                            String nome = objectInputStream.readUTF();
+                            String nome = inputListen.readUTF();
                             if(ServerControl.verificaArquivo(nome) == -1) {
-                                objectOutputStream.writeInt(-1);
-                                objectOutputStream.flush();
+                                outputListen.writeInt(-1);
+                                outputListen.flush();
                                 break;
                             }
-                            objectOutputStream.writeInt(1);
-                            objectOutputStream.flush();
-                            objectOutputStream.flush();
-                            String texto = objectInputStream.readUTF();
-                            objectOutputStream.write(ServerControl.upload(nome,texto,client));
-                            objectOutputStream.flush();
+                            outputListen.writeInt(1);
+                            outputListen.flush();
+                            String texto = inputListen.readUTF();
+                            outputListen.write(ServerControl.upload(nome,texto,client));
+                            outputListen.flush();
 
                     } catch (IOException e) {
                         JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
@@ -61,10 +62,10 @@ public class Connect implements Runnable{
                 break;
                 case "abrir":
                     try {
-                        objectOutputStream.writeUTF(ServerControl.listaArquivos());
-                        objectOutputStream.flush();
-                        objectOutputStream.writeUTF(ServerControl.abrir(objectInputStream.read(),client));
-                        objectOutputStream.flush();
+                        outputListen.writeUTF(ServerControl.listaArquivos());
+                        outputListen.flush();
+                        outputListen.writeUTF(ServerControl.abrir(inputListen.read(),client));
+                        outputListen.flush();
 
                     } catch (IOException e) {
                         JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
@@ -72,12 +73,14 @@ public class Connect implements Runnable{
                 break;
                 case "texto":
                     try {
-                        String texto = objectInputStream.readUTF();
-                        objectOutputStream.writeInt(ServerControl.recebeTexto(texto,client));
-                        objectOutputStream.flush();
+                        String texto = inputListen.readUTF();
+                        int resposta = ServerControl.recebeTexto(texto,client);
+                        outputListen.writeInt(resposta);
+                        outputListen.flush();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                break;
             }
         }
     }
