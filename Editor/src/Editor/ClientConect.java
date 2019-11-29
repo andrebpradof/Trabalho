@@ -42,7 +42,7 @@ public class ClientConect {
     public static void setInterfaceGrafica(InterfaceGrafica tela) throws IOException {
         comunication = new Comunication();
         comunication.setInterfaceGrafica(tela);
-        Thread thread = new Thread(comunication); //thread responsavel por ficar escutando o servidor
-        thread.start(); //da-se inicio a thread
+        //Thread thread = new Thread(comunication); //thread responsavel por ficar escutando o servidor
+        //thread.start(); //da-se inicio a thread
     }
 }

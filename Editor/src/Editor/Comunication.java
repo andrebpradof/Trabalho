@@ -23,7 +23,7 @@ public class Comunication implements Runnable{
             try {
                 input = inputForward.readUTF();
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             }
 
             switch (input){
@@ -33,7 +33,7 @@ public class Comunication implements Runnable{
                         String texto = "Usuários editando: " + numEdit;
                         this.interfaceGrafica.setNumEdit(texto);
                     } catch (IOException e) {
-                        JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                     }
                 break;
                 case "setText":
@@ -41,7 +41,7 @@ public class Comunication implements Runnable{
                         String texto = inputForward.readUTF();
                         interfaceGrafica.setTextArea(texto);
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                     }
                 break;
             }
@@ -78,7 +78,7 @@ public class Comunication implements Runnable{
     public static int novo(){
         try {
             outputForward.writeUTF("novo"); //envia o comando para abertura de novo arquivo
-            String resposta = JOptionPane.showInputDialog(TelaInicial.getFrames()[0],"Nome do Arquivo:");
+            String resposta = JOptionPane.showInputDialog(null,"Nome do Arquivo:");
             //abre uma janela momentanea para que o usuario digite o nome a ser dado ao arquivo
 
             if(resposta!=null) { //verifica se houve resposta
@@ -88,10 +88,10 @@ public class Comunication implements Runnable{
 
                 switch (inputForward.readInt()){ //verifica se houve algum erro no processo de abertura do arquivo
                     case -1:
-                        JOptionPane.showMessageDialog(TelaInicial.getFrames()[0],"Erro ao criar o arquivo!","Erro", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null,"Erro ao criar o arquivo!","Erro", JOptionPane.ERROR_MESSAGE);
                         return -1;
                     case -2:
-                        JOptionPane.showMessageDialog(TelaInicial.getFrames()[0],"Arquivo já existente no servidor","Erro", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null,"Arquivo já existente no servidor","Erro", JOptionPane.ERROR_MESSAGE);
                         return -1;
                     default:
                         return 1; //mostra que o processo foi concluido com sucesso
@@ -101,7 +101,7 @@ public class Comunication implements Runnable{
             return -1;
 
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(TelaInicial.getFrames()[0],ex.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
             return -1;
         }
     }
@@ -117,7 +117,7 @@ public class Comunication implements Runnable{
             outputForward.writeUTF("upload");//envia o comando de upload para o servidor
             outputForward.flush(); //limpa o objectoutputstream
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
         //janela para escolha do arquivo a ser submetido ao upload
@@ -135,7 +135,7 @@ public class Comunication implements Runnable{
                 outputForward.flush();
                 resposta = inputForward.readInt();
                 if (resposta == -1) { //verifica se houve algum erro no processo
-                    JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], "Arquivo já existente no servidor!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Arquivo já existente no servidor!", "Erro", JOptionPane.ERROR_MESSAGE);
                     return "-1";
                 }
 
@@ -157,15 +157,15 @@ public class Comunication implements Runnable{
                 outputForward.flush();
 
                 if (inputForward.read() == -1) {
-                    JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], "Erro no upload!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro no upload!", "Erro", JOptionPane.ERROR_MESSAGE);
                     return "-1";
                 }
                 return texto;
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return "-1";
             } catch (IOException e) {
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return "-1";
             }
         }
@@ -184,7 +184,7 @@ public class Comunication implements Runnable{
 
             String mensagem = inputForward.readUTF(); //le uma lista dos arquivos disponiveis no servidor
             //le do usuario o indice do arquivo do servidor que ele deseja abrir
-            String resposta = JOptionPane.showInputDialog(TelaInicial.getFrames()[0],"Digite o índice do arquivo: \n"+mensagem);
+            String resposta = JOptionPane.showInputDialog(null,"Digite o índice do arquivo: \n"+mensagem);
 
             if(resposta == null) //verifica se houve resposta
                 return "-1";
@@ -195,14 +195,14 @@ public class Comunication implements Runnable{
             String texto = inputForward.readUTF(); //le o texto do arquivo em questao
 
             if(texto != null && texto.equals("-1")){
-                JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], "Erro na abertura do arquivo", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Erro na abertura do arquivo", "Erro", JOptionPane.ERROR_MESSAGE);
                 return "-1";
             }
 
             return texto; //retorna o texto do arquivo
 
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(TelaInicial.getFrames()[0], ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             return "-1";
         }
     }
