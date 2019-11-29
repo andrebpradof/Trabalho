@@ -53,7 +53,7 @@ public class TelaInicial extends JFrame{
                 try {
                     ClientConect.setInterfaceGrafica(interfaceGrafica);
                 } catch (IOException ex) { //verifica se foi gerada uma excessao
-                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
                 }
                 TelaInicial.getFrames()[0].setVisible(false); //tira da tela a janela de tela inicial
             }
@@ -72,7 +72,7 @@ public class TelaInicial extends JFrame{
                 try {
                     ClientConect.setInterfaceGrafica(interfaceGrafica); //setta a interface grafica
                 } catch (IOException ex) { //verifica se foi gerada uma excessao
-                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
                 }
                 interfaceGrafica.setTextArea(texto); //passa o texto do arquivo do uplload para a area de texto da interface do editor
                 TelaInicial.getFrames()[0].setVisible(false); //tira da tela a janela do menu inicial
@@ -92,7 +92,7 @@ public class TelaInicial extends JFrame{
                 try{
                     ClientConect.setInterfaceGrafica(interfaceGrafica); //setta a interface
                 } catch (IOException ex) { //verifica se foi gerada uma excessao
-                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null,e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
