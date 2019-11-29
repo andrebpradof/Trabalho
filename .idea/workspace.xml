@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a695e45-6c5f-40dc-baba-9a6140af6949" name="Default Changelist" comment="">
+    <list default="true" id="8e1c0c58-e5a7-4464-86e8-db95a0f0db34" name="Default Changelist" comment="ola">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Server/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Server/Connect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Editor/src/Editor/TelaInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Editor/src/Editor/TelaInicial.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +19,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Editor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Server" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -44,7 +44,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1a695e45-6c5f-40dc-baba-9a6140af6949" name="Default Changelist" comment="" />
+      <changelist id="8e1c0c58-e5a7-4464-86e8-db95a0f0db34" name="Default Changelist" comment="" />
       <created>1574787034377</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -58,7 +58,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574787094763</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="modesto fenix">
+      <created>1574999764231</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574999764231</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -69,7 +76,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -77,6 +86,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ola" />
-    <option name="LAST_COMMIT_MESSAGE" value="ola" />
+    <MESSAGE value="modesto fenix" />
+    <option name="LAST_COMMIT_MESSAGE" value="modesto fenix" />
   </component>
 </project>
